@@ -35,7 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message .= implode("\r\n", $attachments);
     $message .= "--$boundary--";
 
+    // Send email
     mail($to, $subject, $message, $headers);
-    echo "Thank you for your order! We will get back to you shortly.";
+
+    // Redirect to the thank you page
+    echo "<script>window.location.href = 'thank_you_page.html';</script>";
 }
 ?>
