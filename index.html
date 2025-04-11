@@ -112,7 +112,7 @@
 <div class="container">
     <h2>Seera Custom Photo Magnet</h2>
     
-    <form id="orderForm" action="process_form.php" method="POST" enctype="multipart/form-data">
+    <form id="orderForm">
         <!-- Customer Info -->
         <div>
             <label for="name">Name</label>
@@ -171,12 +171,8 @@
             scalable: true, // Allow scaling
             crop: function(event) {
                 const canvas = cropper.getCroppedCanvas();
-                const croppedImage = document.createElement('img');
+                const croppedImage = document.getElementById('croppedImage');
                 croppedImage.src = canvas.toDataURL(); // Update with cropped image data
-
-                // Optionally, display the cropped image or send it as form data
-                document.querySelector('.image-container').innerHTML = '';
-                document.querySelector('.image-container').appendChild(croppedImage);
             }
         });
     }
