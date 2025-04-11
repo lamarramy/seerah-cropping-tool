@@ -171,8 +171,12 @@
             scalable: true, // Allow scaling
             crop: function(event) {
                 const canvas = cropper.getCroppedCanvas();
-                const croppedImage = document.getElementById('croppedImage');
+                const croppedImage = document.createElement('img');
                 croppedImage.src = canvas.toDataURL(); // Update with cropped image data
+
+                // Optionally, display the cropped image or send it as form data
+                document.querySelector('.image-container').innerHTML = '';
+                document.querySelector('.image-container').appendChild(croppedImage);
             }
         });
     }
